@@ -82,11 +82,31 @@ img {
   font-size: 16px;
   line-height: 1.5;
   color: var(--title-text-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.link-item:hover,
+.link-item:focus {
+  color: var(--link-hover-color);
+  transform: color;
+}
+.after::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--link-hover-color);
+  border-radius: 2px;
+}
+.after {
+  color: var(--link-hover-color);
+}
+.nav-item {
+  position: relative;
 }
 
-.link-item:active {
-  color: var(--title-blue-color);
-}
 .list.nav {
   display: flex;
 }
@@ -102,10 +122,6 @@ img {
 .contacts-item:not(:last-child) {
   margin-right: 40px;
 }
-.link-item:hover,
-.link-item:focus {
-  color: var(--link-hover-color);
-}
 
 .link {
   display: block;
@@ -118,6 +134,7 @@ img {
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .link:active {
   color: var(--title-blue-color);
@@ -125,6 +142,7 @@ img {
 .link:hover,
 .link:focus {
   color: var(--title-blue-color);
+  transform: color;
 }
 .section {
   padding-top: 120px;
@@ -174,10 +192,13 @@ img {
   border: transparent;
   border-radius: 4px;
   padding: 16px 32px;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .hero-button:hover,
 .hero-button:focus {
   background-color: var(--button-hover-color);
+  transform: background-color;
 }
 /* --------------------our work---------------- */
 .list-work {
@@ -286,10 +307,13 @@ img {
   border-radius: 50%;
   background-color: #4d5ae5;
   align-items: center;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-link:hover,
 .social-link:focus {
-  background: #404bbf;
+  background-color: #404bbf;
+  transform: background-color;
 }
 .social-link:active {
   background: #404bbf;
@@ -314,11 +338,15 @@ img {
   border: 1px solid #8e8f99;
   border-radius: 4px;
   fill: #8e8f99;
+
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .customer-list-item:hover,
 .customer-list-item:focus {
   border: 1px solid #404bbf;
   fill: #404bbf;
+  transform: border, fill;
 }
 .customer-list-item:active {
   border: 1px solid #404bbf;
@@ -344,13 +372,17 @@ img {
   border-radius: 50%;
 
   background-color: rgba(255, 255, 255, 0.1);
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-social-link:hover,
 .footer-social-link:focus {
-  background: #31d0aa;
+  background-color: #31d0aa;
+
+  transform: background-color;
 }
 .footer-social-link:active {
-  background: #31d0aa;
+  background-color: #31d0aa;
 }
 .footer-social-link-item {
   fill: var(--social-item-color);
@@ -399,11 +431,7 @@ img {
   gap: 24px;
   margin-bottom: 75px;
 }
-.portfolio-item:hover,
-.portfolio-item:focus {
-  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
-    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
-}
+
 .filter-button {
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
@@ -416,6 +444,11 @@ img {
   padding: 12px 24px;
   background-color: var(--filtr-button-bacgr-color-white);
   cursor: pointer;
+
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-radius 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filter-button:hover,
@@ -425,12 +458,44 @@ img {
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
-}
 
+  transform: color, background-color, box-shadow, border-radius;
+}
+.portfolio-item {
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.portfolio-overlay {
+  position: relative;
+  overflow: hidden;
+}
+.portfolio-item:hover,
+.portfolio-item:focus {
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+
+  transform: box-shadow;
+}
 .section-text {
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
+}
+.portfolio-item:hover .overlay {
+  transform: translateY(0);
+  opacity: 1;
+}
+.overlay {
+  display: block;
+  position: absolute;
+  padding: 40px 32px 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--button-title-color);
+  opacity: 0;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .portfolio {
   padding-top: 93px;
