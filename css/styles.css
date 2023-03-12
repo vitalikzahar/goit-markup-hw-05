@@ -220,20 +220,37 @@ img {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+transition: scale 250ms  cubic-bezier(0.4, 0, 0.2, 1);
+
 }
-.button {
+.is-hidden{
+visibility: hidden;
+opacity: 0;
+pointer-events: none;
+transform: scale(1.5), opasity;
 }
+
 .model-btn {
   position: absolute;
   right: 24px;
   top: 24px;
 
+  margin: 0;
+  padding: 0;
   width: 24px;
   height: 24px;
   border-radius: 50%;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.model-btn:hover,
+.model-btn:focus {
+  background-color: #404bbf;
+  fill: #ffffff;
+  transform: fill, background-color;
 }
 .model-icon {
-  fill: #2e2f42;
 }
 /* --------------------our work---------------- */
 .list-work {

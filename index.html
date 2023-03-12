@@ -58,12 +58,12 @@
       <section class="hero">
         <div class="hero-container">
           <h1 class="hero-title">Effective Solutions for Your Business</h1>
-          <button type="button" class="hero-button">Order Service</button>
-          <div class="backdrop">
+          <button data-modal-open class="hero-button">Order Service</button>
+          <div data-modal class="backdrop is-hidden">
             <div class="model">
-              <button type="button" class="model-btn">
-                <svg class="model-icon" widht="18" height="18">
-                  <use href="./images/vector-mod.svg"></use>
+              <button data-modal-close class="model-btn">
+                <svg class="model-icon" width="8" height="8">
+                  <use href="./images/symbol-defs-v.svg#icon-vector"></use>
                 </svg>
               </button>
             </div>
@@ -417,5 +417,6 @@
         </div>
       </div>
     </footer>
+    <script src="./js/modal.js"></script>
   </body>
 </html>
